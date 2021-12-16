@@ -51,4 +51,4 @@ vendor/bin/phing setup
 
 ```
   
-Now you can build and push your contianer.  
+Now you can build and push your container.  

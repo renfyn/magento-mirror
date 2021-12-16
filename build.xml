@@ -42,6 +42,8 @@
                     <token key="db.pass" value="${db.password}" />
                     <token key="locale.code" value="${locale.code}" />
                     <token key="locale.timezone" value="${locale.timezone}" />
+                    <token key="data.key" value="${data.key}" />
+                    <token key="admin.path" value="${admin.path}" />
                 </replacetokens>
             </filterchain>
         </copy>

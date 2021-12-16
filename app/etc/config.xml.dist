@@ -28,8 +28,13 @@
 <config>
     <global>
         <install>
-            <date/>
+            <date><![CDATA[Thu, 16 Dec 2021 11:35:29 +0000]]></date>
         </install>
+        <crypt>
+            <key><![CDATA[@data.key@]]></key>
+        </crypt>
+        <disable_local_modules>false</disable_local_modules>
+        <session_save><![CDATA[files]]></session_save>
         <resources>
             <default_setup>
                 <connection>
@@ -121,6 +126,15 @@
             </core_resource>
         </models>
     </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <frontName><![CDATA[@admin.path@]]></frontName>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <default>
         <system>
             <filesystem>

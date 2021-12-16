@@ -10,7 +10,7 @@ Configure your environment variables:
 - DB_PASS=<your custom password>
 - DB_NAME=<your db name>
 - TIMEZONE=<example europe/Paris>
-- LOCALE_CODE=<exmple en_US>
+- LOCALE_CODE=<example en_US>
 - ADMIN=<exemple admin/ admin URL path>
 - KEY=<secret key to encrypt datas>
   

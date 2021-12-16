@@ -1,0 +1,54 @@
+<project name="magento-demo" default="help" basedir=".">
+    
+    
+    <if>
+        <available file="${project.basedir}/build.local.properties" />
+        <then>
+            <property file="${project.basedir}/build.local.properties" />
+        </then>
+    </if>
+    <property file="${project.basedir}/build.properties" />
+    
+    <target name="help" description="List available targets">
+        <exec executable="vendor/bin/phing"
+              passthru="true">
+            <arg value="-l"/>
+        </exec>
+    </target>
+
+    <!-- create database -->
+    <target name="init-db" description="Create Database and Grants">
+        <mkdir dir="${project.basedir}/data/db"/>
+        <echo file="${project.basedir}/data/db/create.sql">
+            CREATE DATABASE IF NOT EXISTS ${db.dbname};
+        </echo>
+        <pdosqlexec url="mysql:host=${db.host}"
+                    userid="${db.username}" password="${db.password}">
+            <transaction src="${project.basedir}/data/db/create.sql"/>
+        </pdosqlexec>
+        <delete dir="${project.basedir}/data/db" quiet="true"/>
+    </target>
+
+    <!-- generate config -->
+    <target name="generate-config">
+
+        <copy file="${project.basedir}/app/etc/config.xml.dist" tofile="${project.basedir}/app/etc/config.xml"
+              overwrite="true">
+             <filterchain>
+                <replacetokens>
+                    <token key="db.host" value="${db.host}" />
+                    <token key="db.name" value="${db.dbname}" />
+                    <token key="db.user" value="${db.username}" />
+                    <token key="db.pass" value="${db.password}" />
+                    <token key="locale.code" value="${locale.code}" />
+                    <token key="locale.timezone" value="${locale.timezone}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+    </target>
+    
+    <target name="setup"
+            description="Setup external dependencies and migrate data"
+            depends="generate-config, init-db"/>
+</project>

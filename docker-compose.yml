@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+    magento:
+        build: .
+        volumes:
+            - ./:/var/www/html
+        networks:
+            - front
+            - back
+        ports:
+            - 80:80
+        environment:
+            DB_HOST: $DB_HOST
+            DB_USER: $DB_USER
+            DB_PASS: $DB_PASS
+            DB_NAME: $DB_NAME
+            TIMEZONE: $TIMEZONE
+            LOCALE_CODE: $LOCALE_CODE
+    
+    database:
+        image: mysql:5.5
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: $DB_PASS
+        volumes:
+            - ./dev-data/mysql:/var/lib/mysql
+        networks:
+            - back
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
+        networks:
+            - front
+            - back
+        
+networks:
+    back:
+    front:

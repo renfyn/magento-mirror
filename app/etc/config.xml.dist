@@ -33,10 +33,10 @@
         <resources>
             <default_setup>
                 <connection>
-                    <host>database</host>
-                    <username>root</username>
-                    <password>example</password>
-                    <dbname>magento</dbname>
+                    <host>@db.host@</host>
+                    <username>@db.user@</username>
+                    <password>@db.pass@</password>
+                    <dbname>@db.name@</dbname>
                     <model>mysql4</model>
                     <initStatements>SET NAMES utf8</initStatements>
                     <type>pdo_mysql</type>
@@ -152,8 +152,8 @@
         </dev>
         <general>
             <locale>
-                <code>example</code>
-                <timezone>Europe/Paris</timezone>
+                <code>@locale.code@</code>
+                <timezone>@locale.timezone@</timezone>
             </locale>
         </general>
     </default>

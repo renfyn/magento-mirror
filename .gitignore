@@ -1,0 +1,10 @@
+vendor
+app/etc/config.xml
+app/etc/local.xml
+dev-data
+.env
+**/.DS_Store
+var/cache/
+var/locks/
+var/session/
+!**/.gitkeep

@@ -7,12 +7,12 @@ Configure your environment variables:
 
 - DB_HOST=database
 - DB_USER=root
-- DB_PASS=<your custom password>
-- DB_NAME=<your db name>
-- TIMEZONE=<example europe/Paris>
-- LOCALE_CODE=<example en_US>
-- ADMIN=<exemple admin/ admin URL path>
-- KEY=<secret key to encrypt datas>
+- DB_PASS=your custom password
+- DB_NAME=your db name
+- TIMEZONE=< example europe/Paris >
+- LOCALE_CODE=< example en_US or fr_FR >
+- ADMIN=< exemple admin/ admin URL path >
+- KEY=< secret key to encrypt datas >
   
 run the following commands:  
 
